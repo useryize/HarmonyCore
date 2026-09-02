@@ -1,0 +1,15 @@
+{
+  "app": {
+    "bundleName": "com.example.HarmonyCore",
+    "patchVersionCode": 2000126,
+    "versionCode": 1000000,
+    "versionName": "1.0.0",
+    "patchVersionName": "2000126"
+  },
+  "module": {
+    "name": "entry",
+    "type": "hotreload",
+    "deviceTypes": ["phone"],
+    "originalModuleHash": ""
+  }
+}

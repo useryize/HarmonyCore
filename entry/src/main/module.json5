@@ -7,6 +7,9 @@
     "deviceTypes": [
       "phone"
     ],
+    "requestPermissions": [{
+      "name": "ohos.permission.INTERNET"
+    }],
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:main_pages",
@@ -43,7 +46,7 @@
             "name": "ohos.extension.backup",
             "resource": "$profile:backup_config"
           }
-        ],
+        ]
       }
     ]
   }
