@@ -43,7 +43,7 @@ struct DemoRouterSend {
           router.pushUrl({
             url: 'pages/demo/DemoRouterReceive',
             params: {
-              name: '易文轩',
+              name: 'xxx',
               score: 95
             }
           });

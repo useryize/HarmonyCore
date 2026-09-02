@@ -9,9 +9,18 @@
  *   一方「发布」(emit) 事件，关心的人「订阅」(on) 就能收到。
  *
  * 三步：
- *   1. 定义一个事件 ID（一个数字）
+ *   1. 定义一个事件 ID（string）
  *   2. 接收方 emitter.on(事件ID, 回调)  订阅
  *   3. 发送方 emitter.emit(事件ID, 数据) 发布
+ *
+ * 本 SDK 版本的写法要点（已踩坑修正）：
+ *   - on / emit / off 的事件 ID 只支持两种形式：
+ *       ① emitter.InnerEvent 对象（{ eventId: number, priority? }）
+ *       ② string 事件 ID
+ *     【不支持直接传 number】，所以这里统一用 string。
+ *   - emitter.EventData 的 data 字段是 { [key: string]: any } 索引对象，
+ *     要传 { value: xxx } 这样的对象，不能直接传 number。
+ *   - ArkTS 禁止 any/unknown，取 data 里的字段时先断言到显式接口。
  *
  * 用完一定要 emitter.off 取消订阅（在 aboutToDisappear 里）。
  * ============================================================
@@ -19,8 +28,13 @@
 
 import { emitter } from '@kit.BasicServicesKit';
 
-// ① 自定义事件 ID（数字，只要全局唯一就行）
-const EVENT_SCORE = 20240901;
+// ① 自定义事件 ID（string，本 SDK 版本不支持直接传 number）
+const EVENT_SCORE = 'demo.score';
+
+// 描述 EventData.data 里放的数据结构（显式接口，避免 any）
+interface ScorePayload {
+  value: number;
+}
 
 @Entry
 @Component
@@ -30,16 +44,18 @@ struct DemoEmitter {
 
   // 订阅：页面一创建就监听
   aboutToAppear(): void {
-    emitter.on({ eventId: EVENT_SCORE }, (eventData: emitter.EventData) => {
-      // 收到事件，把 data 拿出来显示
-      const value = eventData.data as number;
-      this.received = value;
+    // string 形式的事件 ID + 回调
+    emitter.on(EVENT_SCORE, (eventData: emitter.EventData) => {
+      // eventData.data 是 { [key: string]: any }，先断言到显式接口再取值
+      const payload = eventData.data as ScorePayload;
+      this.received = payload.value;
     });
   }
 
   // 取消订阅：页面销毁前一定要取消，否则会内存泄漏
   aboutToDisappear(): void {
-    emitter.off({ eventId: EVENT_SCORE });
+    // off 也用 string 事件 ID
+    emitter.off(EVENT_SCORE);
   }
 
   build() {
@@ -67,8 +83,10 @@ struct DemoEmitter {
       Button('发布事件：发一个随机分数')
         .onClick(() => {
           const score = Math.floor(Math.random() * 100);
-          // ② 发布：事件ID + 数据
-          emitter.emit({ eventId: EVENT_SCORE }, { data: score });
+          // ② 发布：string 事件 ID + 数据
+          // EventData.data 是索引对象，要传 { value: score }，不能直接传 number
+          const eventData: emitter.EventData = { data: { value: score } };
+          emitter.emit(EVENT_SCORE, eventData);
         })
 
       Divider()

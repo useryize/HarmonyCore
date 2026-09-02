@@ -50,8 +50,10 @@ struct DemoRouterReceive {
       // 返回并把结果带给上一页
       Button('返回，并把结果传回上一页')
         .onClick(() => {
-          // ===== 关键：router.back 也可以带 params =====
+          // ===== 关键：router.back 也要带 url（本 SDK 版本 url 必填）=====
+          // url 指向要返回到的页面；params 带返回给它的数据
           router.back({
+            url: 'pages/demo/DemoRouterSend',
             params: { result: `已收到 ${this.name}，分数 ${this.score}` }
           });
         })
