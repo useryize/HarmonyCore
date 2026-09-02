@@ -28,9 +28,9 @@ struct Index {
               .fontColor('#ffffff')
               .padding(5)
               .fontSize(14)
-              .textAlign(TextAlign.Start)
+              // .textAlign(TextAlign.Start)
 
-            // .position({ x: 0, y: 0 })
+              .position({ bottom: 0, left: 0 })
           }
 
         })
