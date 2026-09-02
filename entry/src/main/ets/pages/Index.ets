@@ -36,7 +36,17 @@ struct Index {
     { title: '⑦ @Provide/@Consume', desc: '跨层级共享，不用逐层传参', url: 'pages/demo/DemoProvideConsume' },
     { title: '⑧ AppStorage 共享', desc: '应用级全局状态（跨页面共享）', url: 'pages/demo/DemoAppStorage' },
     { title: '⑨ 接口调用', desc: 'http 请求公共 API 渲染列表', url: 'pages/demo/DemoHttp' },
-    { title: '⑩ 电商首页(原)', desc: '之前写的首页原型，已迁移保留', url: 'pages/Ecommerce' }
+    { title: '⑩ 电商首页(原)', desc: '之前写的首页原型，已迁移保留', url: 'pages/Ecommerce' },
+    // ---------- 进阶篇 ----------
+    { title: '⑪ @Observed/@ObjectLink', desc: '对象/数组深度状态观察（进阶）', url: 'pages/demo/DemoObserved' },
+    { title: '⑫ @Builder UI 复用', desc: '自定义构建函数，一块 UI 多处用', url: 'pages/demo/DemoBuilder' },
+    { title: '⑬ @Styles/@Extend', desc: '通用样式与组件专属属性扩展', url: 'pages/demo/DemoStyle' },
+    { title: '⑭ 生命周期', desc: 'aboutToAppear / onPageShow 等回调', url: 'pages/demo/DemoLifecycle' },
+    { title: '⑮ 路由传参', desc: '页面跳转带参数、返回带结果', url: 'pages/demo/DemoRouterSend' },
+    { title: '⑯ 动画', desc: 'animateTo / animation / transition', url: 'pages/demo/DemoAnimation' },
+    { title: '⑰ Tabs 底部导航', desc: '首页/发现/我的 多页签结构', url: 'pages/demo/DemoTabs' },
+    { title: '⑱ emitter 事件总线', desc: '跨组件/跨页面发布订阅通信', url: 'pages/demo/DemoEmitter' },
+    { title: '⑲ 自定义弹窗', desc: '@CustomDialog 自己造弹窗', url: 'pages/demo/DemoDialog' }
   ];
 
   build() {
