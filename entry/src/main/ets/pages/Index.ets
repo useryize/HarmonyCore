@@ -18,8 +18,8 @@ import { router } from '@kit.ArkUI';
 // 导航数据模型：一条记录 = 一个学习主题
 interface DemoItem {
   title: string; // 主题名
-  desc: string;  // 一句话说明
-  url: string;   // 要跳转的页面路径（对应 main_pages.json 中注册的路径）
+  desc: string; // 一句话说明
+  url: string; // 要跳转的页面路径（对应 main_pages.json 中注册的路径）
 }
 
 @Entry
@@ -36,7 +36,7 @@ struct Index {
     { title: '⑦ @Provide/@Consume', desc: '跨层级共享，不用逐层传参', url: 'pages/demo/DemoProvideConsume' },
     { title: '⑧ AppStorage 共享', desc: '应用级全局状态（跨页面共享）', url: 'pages/demo/DemoAppStorage' },
     { title: '⑨ 接口调用', desc: 'http 请求公共 API 渲染列表', url: 'pages/demo/DemoHttp' },
-    { title: '⑩ 电商首页(原)', desc: '之前写的首页原型，已迁移保留', url: 'pages/Ecommerce' },
+    { title: '⑩ XXX', desc: '之前写的首页原型，已迁移保留', url: 'pages/Ecommerce' },
     // ---------- 进阶篇 ----------
     { title: '⑪ @Observed/@ObjectLink', desc: '对象/数组深度状态观察（进阶）', url: 'pages/demo/DemoObserved' },
     { title: '⑫ @Builder UI 复用', desc: '自定义构建函数，一块 UI 多处用', url: 'pages/demo/DemoBuilder' },

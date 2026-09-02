@@ -17,9 +17,9 @@ interface BannerItem {
 struct Ecommerce {
   @State currentIndex: number = 0;
   private banners: BannerItem[] = [
-    { title: '夏日清爽 · 全场 5 折起' },
-    { title: '极客数码 · 新品首发' },
-    { title: '暖胃美食 · 满 30 减 15' }
+    { title: 'XXX' },
+    { title: 'XXXXXX' },
+    { title: 'XXXXX' }
   ];
 
   build() {

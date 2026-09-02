@@ -1,7 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "pages/Ecommerce",
+    "pages/demo/Ecommerce",
     "pages/demo/DemoBasic",
     "pages/demo/DemoContainer",
     "pages/demo/DemoState",
