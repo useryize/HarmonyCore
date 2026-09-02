@@ -1,5 +1,15 @@
 {
   "src": [
-    "pages/Index"
+    "pages/Index",
+    "pages/Ecommerce",
+    "pages/demo/DemoBasic",
+    "pages/demo/DemoContainer",
+    "pages/demo/DemoState",
+    "pages/demo/DemoProp",
+    "pages/demo/DemoLink",
+    "pages/demo/DemoCallback",
+    "pages/demo/DemoProvideConsume",
+    "pages/demo/DemoAppStorage",
+    "pages/demo/DemoHttp"
   ]
 }
