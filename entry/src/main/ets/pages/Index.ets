@@ -17,7 +17,7 @@ struct Index {
   ];
 
   build() {
-    Column() {
+    Column({ space: 10 }) {
       Swiper() {
         ForEach(this.banners, (item: BannerItem) => {
           Stack({ alignContent: Alignment.Bottom }) {
@@ -48,6 +48,31 @@ struct Index {
         .itemWidth(10)
         .selectedItemWidth(10)
         .selectedColor(Color.White))
+
+      Column({ space: 10 }) {
+        Row() {
+          Text('￥').fontColor(Color.Red).fontSize(14)
+          Text('3??').fontColor(Color.Red).fontSize(16).fontWeight(600)
+          Text('登录查看价格')
+            .fontSize(12)
+            .fontColor(Color.White)
+            .padding(5)
+            .borderRadius({
+              topLeft: 10,
+              topRight: 10,
+              bottomLeft: 2,
+              bottomRight: 10,
+            })
+            .backgroundColor('#f6505e')
+            .margin({ left: 10 })
+
+        }.width('100%')
+
+        Text(Array(60).fill('XXXX').join(''))
+          .maxLines(2).textOverflow({ overflow: TextOverflow.Ellipsis }).fontSize(14).fontWeight(600)
+
+      }.padding({ left: 10, right: 10 })
+
     }
     .width('100%')
     .height('100%')
