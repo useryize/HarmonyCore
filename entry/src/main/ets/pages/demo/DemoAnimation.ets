@@ -15,9 +15,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoAnimation {
+export struct DemoAnimation {
   // ① 控制方块大小（animateTo）
   @State big: boolean = false;
   // ② 控制方块位移（animation）

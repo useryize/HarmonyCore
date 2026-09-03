@@ -19,13 +19,14 @@
  * ============================================================
  */
 
-import { promptAction, router } from '@kit.ArkUI'; // promptAction 弹轻提示，router 做页面跳转
+import { promptAction } from '@kit.ArkUI'; // promptAction 弹轻提示
 
-@Entry
 @Component
-struct DemoBasic {
+export struct DemoBasic {
   // @State 响应式状态：inputValue 变化时，界面上引用它的地方会自动刷新
   @State inputValue: string = '';
+  // 父组件（导航首页）传进来的回调：点击「返回」时调用，用来关闭弹窗
+  onClose: () => void = () => {};
 
   build() {
     Scroll() { // 内容可能超出屏幕，用 Scroll 包住可以上下滚动
@@ -98,12 +99,12 @@ struct DemoBasic {
           .fontSize(14)
           .fontColor('#4f6ef2')
 
-        // ---------- 5. 回到首页按钮 ----------
+        // ---------- 5. 关闭弹窗按钮 ----------
         Button('返回导航首页')
           .backgroundColor('#999999')
           .onClick(() => {
-            // router.back() 返回上一页
-            router.back();
+            // 现在本组件嵌在首页的弹窗里，点这里通知父组件关闭弹窗
+            this.onClose();
           })
       }
       .width('100%')

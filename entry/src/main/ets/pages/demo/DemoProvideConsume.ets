@@ -15,9 +15,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoProvideConsume {
+export struct DemoProvideConsume {
   // ===== 祖先组件：用 @Provide 提供数据 =====
   // 默认以变量名 message 作为 key，后代用 @Consume message 接收
   @Provide message: string = '来自爷爷的消息';

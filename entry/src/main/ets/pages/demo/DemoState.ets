@@ -15,9 +15,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoState {
+export struct DemoState {
   // ---------- ① 基础用法：数字计数器 ----------
   // @State 标记后，count 就是响应式状态，初始值为 0
   @State count: number = 0;

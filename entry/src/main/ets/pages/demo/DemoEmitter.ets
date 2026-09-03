@@ -36,9 +36,8 @@ interface ScorePayload {
   value: number;
 }
 
-@Entry
 @Component
-struct DemoEmitter {
+export struct DemoEmitter {
   // 保存收到的事件数据
   @State received: number = 0;
 

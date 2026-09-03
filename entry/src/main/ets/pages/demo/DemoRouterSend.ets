@@ -1,57 +1,43 @@
 /**
  * ============================================================
- * 进阶⑤：路由传参（发送页）
+ * 进阶⑤：组件间传参（发送端）
  * ============================================================
- * 页面之间跳转时，经常要带数据过去 / 拿数据回来。
+ * 页面改成弹窗里的组件后，跨“页面”传参不再用 router，
+ * 而是由父组件（demo/index）统一管理状态：
  *
- * 发送数据：
- *   router.pushUrl({ url: '目标页', params: { 键: 值 } })
- * 接收返回：
- *   在 onPageShow 里用 router.getParams() 读取（详见本页末尾）
+ *  发送端组件通过回调把参数交给父组件
+ *  → 父组件把参数传给接收端组件（DemoRouterReceive）的属性
+ *  → 接收端通过回调把 result 回传给父组件
+ *  → 父组件再把 result 传给发送端组件显示
  *
- * 配套页面：DemoRouterReceive（接收页）
+ * 配套组件：DemoRouterReceive（接收端）
  * ============================================================
  */
 
-import { router } from '@kit.ArkUI';
-
-@Entry
 @Component
-struct DemoRouterSend {
-  // 保存「从接收页返回带回来的」结果
-  @State backMsg: string = '';
-
-  // 页面每次显示都会调用——这里用来读取返回的参数
-  onPageShow(): void {
-    // getParams() 返回跳转时塞进来的参数对象
-    const params = router.getParams() as Record<string, Object>;
-    if (params && params['result']) {
-      this.backMsg = params['result'] as string; // 读取返回结果
-    }
-  }
+export struct DemoRouterSend {
+  // 父组件传进来的：接收端回传的结果
+  backMsg: string = '';
+  // 回调：把 name/score 交给父组件，由父组件切到接收端组件
+  onNavigateReceive: (name: string, score: number) => void = (name: string, score: number) => {};
+  // 回调：关闭弹窗
+  onClose: () => void = () => {};
 
   build() {
     Column({ space: 16 }) {
-      Text('发送页（DemoRouterSend）')
+      Text('发送端组件（DemoRouterSend）')
         .fontSize(16)
         .fontWeight(700)
 
-      // 跳转并携带参数
-      Button('带参数跳到接收页')
+      // 发送参数：把数据通过回调交给父组件
+      Button('带参数切到接收端组件')
         .onClick(() => {
-          // ===== 关键：params 里可以放任意键值 =====
-          router.pushUrl({
-            url: 'pages/demo/DemoRouterReceive',
-            params: {
-              name: 'xxx',
-              score: 95
-            }
-          });
+          this.onNavigateReceive('易文轩', 95);
         })
 
       Divider()
 
-      Text('接收页返回回来的结果：')
+      Text('接收端返回回来的结果：')
         .fontSize(13)
         .fontColor('#888888')
       Text(this.backMsg.length > 0 ? this.backMsg : '（暂无返回）')
@@ -59,9 +45,15 @@ struct DemoRouterSend {
         .fontWeight(600)
         .fontColor('#e63946')
 
-      Text('流程：本页 → 跳接收页（带 name/score）→ 接收页点返回（带 result）→ 本页 onPageShow 收到')
+      Text('流程：发送端 → 父组件传参 → 接收端 → 回调回传 result → 发送端显示')
         .fontSize(12)
         .fontColor('#888888')
+
+      Button('关闭弹窗')
+        .backgroundColor('#999999')
+        .onClick(() => {
+          this.onClose();
+        })
     }
     .width('100%')
     .padding(16)

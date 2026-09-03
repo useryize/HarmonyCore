@@ -2,26 +2,6 @@
   "src": [
     "pages/Index",
     "pages/demo/index",
-    "pages/demo/Ecommerce",
-    "pages/demo/DemoBasic",
-    "pages/demo/DemoContainer",
-    "pages/demo/DemoState",
-    "pages/demo/DemoProp",
-    "pages/demo/DemoLink",
-    "pages/demo/DemoCallback",
-    "pages/demo/DemoProvideConsume",
-    "pages/demo/DemoAppStorage",
-    "pages/demo/DemoHttp",
-    "pages/demo/DemoObserved",
-    "pages/demo/DemoBuilder",
-    "pages/demo/DemoStyle",
-    "pages/demo/DemoLifecycle",
-    "pages/demo/DemoLifecycleTarget",
-    "pages/demo/DemoRouterSend",
-    "pages/demo/DemoRouterReceive",
-    "pages/demo/DemoAnimation",
-    "pages/demo/DemoTabs",
-    "pages/demo/DemoEmitter",
-    "pages/demo/DemoDialog"
+    "pages/demo/DemoLifecycleTarget"
   ]
 }

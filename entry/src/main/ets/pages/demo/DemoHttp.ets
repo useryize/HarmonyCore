@@ -29,9 +29,8 @@ interface TodoItem {
   completed: boolean; // 是否已完成
 }
 
-@Entry
 @Component
-struct DemoHttp {
+export struct DemoHttp {
   // loading：是否正在请求（用来显示「加载中」）
   @State loading: boolean = false;
   // todos：接口返回的数据（渲染到列表）

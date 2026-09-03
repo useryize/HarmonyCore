@@ -12,9 +12,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoBuilder {
+export struct DemoBuilder {
   // 数据：三本书
   private books: string[][] = [
     ['《鸿蒙开发入门》', '适合新手'],

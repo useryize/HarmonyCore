@@ -16,9 +16,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoLink {
+export struct DemoLink {
   // 父组件的状态
   @State parentCount: number = 0;
 

@@ -13,9 +13,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoProp {
+export struct DemoProp {
   // 父组件自己的状态
   @State parentCount: number = 0;
 

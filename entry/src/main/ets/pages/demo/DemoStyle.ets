@@ -40,9 +40,8 @@ function textSubtitle() {
   .fontColor('#888888')
 }
 
-@Entry
 @Component
-struct DemoStyle {
+export struct DemoStyle {
   // ===== ④ 成员 @Styles：定义在本组件内，本组件可用 =====
   @Styles
   memberCard() {

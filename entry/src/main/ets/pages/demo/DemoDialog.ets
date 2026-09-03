@@ -12,9 +12,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoDialog {
+export struct DemoDialog {
   // 记录弹窗的操作结果
   @State dialogResult: string = '';
 

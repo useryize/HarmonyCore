@@ -14,9 +14,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoCallback {
+export struct DemoCallback {
   // 父组件自己的状态
   @State total: number = 0;
 

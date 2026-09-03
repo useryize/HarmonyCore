@@ -1,10 +1,10 @@
 {
   "app": {
     "bundleName": "com.example.HarmonyCore",
-    "patchVersionCode": 2000279,
+    "patchVersionCode": 2000289,
     "versionCode": 1000000,
     "versionName": "1.0.0",
-    "patchVersionName": "2000279"
+    "patchVersionName": "2000289"
   },
   "module": {
     "name": "entry",

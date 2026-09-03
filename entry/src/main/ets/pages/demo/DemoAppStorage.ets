@@ -23,9 +23,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoAppStorage {
+export struct DemoAppStorage {
   // 页面初始化时，往全局仓库里塞一个初始值（如果还没有的话）
   // aboutToAppear 是组件的生命周期：创建后、build 前自动调用
   aboutToAppear(): void {

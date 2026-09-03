@@ -20,9 +20,8 @@
 
 import { promptAction } from '@kit.ArkUI'; // 用于点击列表项时弹提示
 
-@Entry
 @Component
-struct DemoContainer {
+export struct DemoContainer {
   // 给列表用的数据数组（普通成员变量即可）
   private items: string[] = ['苹果', '香蕉', '西瓜', '葡萄', '橙子', '草莓', '芒果', '菠萝'];
 

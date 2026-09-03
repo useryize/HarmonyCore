@@ -14,9 +14,8 @@
  * ============================================================
  */
 
-@Entry
 @Component
-struct DemoTabs {
+export struct DemoTabs {
   // 记录当前选中的页签下标（Tabs 的 onChange 会通知）
   @State current: number = 0;
 

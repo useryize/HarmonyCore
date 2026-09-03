@@ -12,9 +12,8 @@ interface BannerItem {
   image?: Resource;
 }
 
-@Entry
 @Component
-struct Ecommerce {
+export struct Ecommerce {
   @State currentIndex: number = 0;
   private banners: BannerItem[] = [
     { title: 'XXX' },

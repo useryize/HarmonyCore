@@ -1,35 +1,27 @@
 /**
  * ============================================================
- * 进阶⑤（配套）：路由传参（接收页）
+ * 进阶⑤（配套）：组件间传参（接收端）
  * ============================================================
- * 接收上一页传来的参数，处理完后再把结果传回去。
+ * 接收父组件传来的参数，处理完后再把结果回传给父组件。
  *
- * 接收参数：onPageShow 里 router.getParams()
- * 返回传参：router.back({ params: { 键: 值 } })
+ * 接收参数：父组件把 name / score 作为组件属性传进来
+ * 返回结果：通过 onNavigateBack 回调把 result 交给父组件
  * ============================================================
  */
 
-import { router } from '@kit.ArkUI';
-
-@Entry
 @Component
-struct DemoRouterReceive {
-  // 接收到的参数
-  @State name: string = '';
-  @State score: number = 0;
-
-  // 页面显示时读取上一页传过来的参数
-  onPageShow(): void {
-    const params = router.getParams() as Record<string, Object>;
-    if (params) {
-      this.name = params['name'] as string;
-      this.score = params['score'] as number;
-    }
-  }
+export struct DemoRouterReceive {
+  // 父组件传进来的参数
+  name: string = '';
+  score: number = 0;
+  // 回调：把 result 回传给父组件（父组件会切回发送端组件并带上 result）
+  onNavigateBack: (result: string) => void = (result: string) => {};
+  // 回调：关闭弹窗
+  onClose: () => void = () => {};
 
   build() {
     Column({ space: 16 }) {
-      Text('接收页（DemoRouterReceive）')
+      Text('接收端组件（DemoRouterReceive）')
         .fontSize(16)
         .fontWeight(700)
 
@@ -47,15 +39,16 @@ struct DemoRouterReceive {
       .backgroundColor(Color.White)
       .borderRadius(12)
 
-      // 返回并把结果带给上一页
-      Button('返回，并把结果传回上一页')
+      // 返回并把结果带给发送端（通过回调交给父组件）
+      Button('返回，并把结果传回发送端')
         .onClick(() => {
-          // ===== 关键：router.back 也要带 url（本 SDK 版本 url 必填）=====
-          // url 指向要返回到的页面；params 带返回给它的数据
-          router.back({
-            url: 'pages/demo/DemoRouterSend',
-            params: { result: `已收到 ${this.name}，分数 ${this.score}` }
-          });
+          this.onNavigateBack(`已收到 ${this.name}，分数 ${this.score}`);
+        })
+
+      Button('关闭弹窗')
+        .backgroundColor('#999999')
+        .onClick(() => {
+          this.onClose();
         })
     }
     .width('100%')

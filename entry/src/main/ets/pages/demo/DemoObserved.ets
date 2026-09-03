@@ -27,9 +27,8 @@ class Fruit {
   }
 }
 
-@Entry
 @Component
-struct DemoObserved {
+export struct DemoObserved {
   // 父组件用一个 @State 数组，里面装的是 @Observed 对象
   @State fruits: Fruit[] = [
     new Fruit('苹果'),
