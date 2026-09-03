@@ -1,8 +1,9 @@
 {
   "src": [
+    "pages/weather/index",
     "pages/Index",
-    "pages/NewsList",
-    "pages/NewsDetail",
+    "pages/news/index",
+    "pages/news/detail",
     "pages/demo/index",
     "pages/demo/DemoLifecycleTarget"
   ]

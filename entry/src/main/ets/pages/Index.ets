@@ -378,8 +378,14 @@ struct Index {
             .fontColor(Color.White)
             .backgroundColor('#e63946')
             .borderRadius(4)
-            .padding({ left: 5, right: 5, top: 1, bottom: 1 })
+            .padding({
+              left: 5,
+              right: 5,
+              top: 1,
+              bottom: 1
+            })
         }
+
         Text('每日要闻 · 点击进入新闻列表')
           .fontSize(12)
           .fontColor('#888888')
@@ -399,7 +405,7 @@ struct Index {
     .onClick(() => {
       // 跳转到新闻列表页面
       this.getUIContext().getRouter().pushUrl({
-        url: 'pages/NewsList'
+        url: 'pages/weather/index'
       }).catch((err: BusinessError) => {
         console.error('跳转新闻页失败: ' + err.message);
       })
