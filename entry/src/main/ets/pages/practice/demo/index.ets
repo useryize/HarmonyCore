@@ -35,7 +35,8 @@ import { DemoRouterReceive } from './DemoRouterReceive';
 import { DemoAnimation } from './DemoAnimation';
 import { DemoTabs } from './DemoTabs';
 import { DemoEmitter } from './DemoEmitter';
-import { DemoDialog } from './DemoDialog';
+
+// import { DemoDialog } from './DemoDialog';
 
 // 导航数据模型：一条记录 = 一个学习主题
 interface DemoItem {
@@ -157,7 +158,7 @@ struct Index {
     } else if (this.currentComp === 'DemoEmitter') {
       DemoEmitter()
     } else if (this.currentComp === 'DemoDialog') {
-      DemoDialog()
+      // DemoDialog()
     }
   }
 

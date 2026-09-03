@@ -1,10 +1,11 @@
 {
   "src": [
-    "pages/weather/index",
     "pages/Index",
-    "pages/news/index",
-    "pages/news/detail",
-    "pages/demo/index",
-    "pages/demo/DemoLifecycleTarget"
+    "pages/practice/weather/index",
+    "pages/practice/Index",
+    "pages/practice/news/index",
+    "pages/practice/news/detail",
+    "pages/practice/demo/index",
+    "pages/practice/demo/DemoLifecycleTarget"
   ]
 }
