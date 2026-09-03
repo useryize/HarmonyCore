@@ -173,7 +173,17 @@ struct Index {
       .height('100%')
 
       // 右上角关闭按钮（放在内容之上）
-      c
+      Text('✕')
+        .width(36)
+        .height(36)
+        .fontSize(16)
+        .fontColor(Color.White)
+        .backgroundColor('rgba(0, 0, 0, 0.35)')
+        .borderRadius(18)
+        .margin({ top: 35, right: 40 })
+        .onClick(() => {
+          this.closePopup();
+        })
     }
     .width('100%')
     .height('100%')
