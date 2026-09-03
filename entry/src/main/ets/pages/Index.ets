@@ -6,7 +6,7 @@ interface TabsType {
 }
 
 @ComponentV2
-struct TJ {
+struct TJComponent {
   build() {
     Column() {
       Text('特价')
@@ -15,7 +15,7 @@ struct TJ {
 }
 
 @ComponentV2
-struct SY {
+struct SYComponent {
   build() {
     Column() {
       Text('首页')
@@ -24,7 +24,7 @@ struct SY {
 }
 
 @ComponentV2
-struct MS {
+struct MSComponent {
   build() {
     Column() {
       Text('秒送')
@@ -33,7 +33,7 @@ struct MS {
 }
 
 @ComponentV2
-struct XP {
+struct XPComponent {
   build() {
     Column() {
       Text('新品')
@@ -77,13 +77,13 @@ struct Index {
         ForEach(this.tabsList, (item: TabsType, index: number) => {
           TabContent() {
             if(item?.type=== 'TJ') {
-              TJ()
+              TJComponent()
             } else if(item?.type=== 'SY') {
-              SY()
+              SYComponent()
             } else if(item?.type=== 'MS') {
-              MS()
+              MSComponent()
             } else if(item?.type=== 'XP') {
-              XP()
+              XPComponent()
             }
           }.tabBar(this.TabsBar(item, index))
         }, (item: TabsType) => item.type)
