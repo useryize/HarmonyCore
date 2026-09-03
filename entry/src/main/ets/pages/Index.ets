@@ -365,12 +365,56 @@ struct Index {
     .margin({ left: 16, right: 16 })
   }
 
+  // ---------- 新闻入口卡片 ----------
+  @Builder
+  NewsEntry() {
+    Row() {
+      Column({ space: 6 }) {
+        Row({ space: 8 }) {
+          Text('📰').fontSize(20)
+          Text('新闻资讯').fontSize(16).fontWeight(700)
+          Text('NEW')
+            .fontSize(10)
+            .fontColor(Color.White)
+            .backgroundColor('#e63946')
+            .borderRadius(4)
+            .padding({ left: 5, right: 5, top: 1, bottom: 1 })
+        }
+        Text('每日要闻 · 点击进入新闻列表')
+          .fontSize(12)
+          .fontColor('#888888')
+      }
+      .alignItems(HorizontalAlign.Start)
+      .layoutWeight(1)
+
+      Text('›')
+        .fontSize(24)
+        .fontColor('#cccccc')
+    }
+    .width('100%')
+    .padding(14)
+    .backgroundColor(Color.White)
+    .borderRadius(12)
+    .margin({ left: 16, right: 16 })
+    .onClick(() => {
+      // 跳转到新闻列表页面
+      this.getUIContext().getRouter().pushUrl({
+        url: 'pages/NewsList'
+      }).catch((err: BusinessError) => {
+        console.error('跳转新闻页失败: ' + err.message);
+      })
+    })
+  }
+
   build() {
     Column({ space: 10 }) {
       Text('入口页面').fontSize(22).fontWeight(700).margin({ top: 20 })
 
       // 天气卡片
       this.WeatherCard()
+
+      // 新闻入口
+      this.NewsEntry()
 
       List({ space: 10 }) {
         ForEach(this.list, (item: listItem) => {

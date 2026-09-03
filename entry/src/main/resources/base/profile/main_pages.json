@@ -1,6 +1,8 @@
 {
   "src": [
     "pages/Index",
+    "pages/NewsList",
+    "pages/NewsDetail",
     "pages/demo/index",
     "pages/demo/DemoLifecycleTarget"
   ]
